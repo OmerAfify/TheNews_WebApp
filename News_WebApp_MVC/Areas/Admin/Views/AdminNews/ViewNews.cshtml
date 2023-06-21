@@ -1,0 +1,266 @@
+﻿@model List<NewsDTO>
+    <!-- Navbar -->
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+        <!-- Left navbar links -->
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a asp-controller="AdminHome" asp-action="Index" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a asp-controller="AdminAccount" asp-action="Logout" class="nav-link">Logout</a>
+            </li>
+
+        </ul>
+
+        <!-- Right navbar links -->
+        <ul class="navbar-nav ml-auto">
+            <!-- Navbar Search -->
+            <li class="nav-item">
+                <a class="nav-link" data-widget="navbar-search" href="#" role="button">
+                    <i class="fas fa-search"></i>
+                </a>
+                <div class="navbar-search-block">
+                    <form class="form-inline">
+                        <div class="input-group input-group-sm">
+                            <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+                            <div class="input-group-append">
+                                <button class="btn btn-navbar" type="submit">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                                <button class="btn btn-navbar" type="button" data-widget="navbar-search">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </li>
+
+
+            <li class="nav-item">
+                <a class="nav-link" data-widget="control-sidebar" data-controlsidebar-slide="true" href="#" role="button">
+                    <i class="fas fa-th-large"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <!-- /.navbar -->
+    <!-- Main Sidebar Container -->
+    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+        <!-- Brand Logo -->
+        <a href="index3.html" class="brand-link">
+            <img src="~/Admin/images/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+            <span class="brand-text font-weight-light">The News Admin Panel</span>
+        </a>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <!-- Sidebar user panel (optional) -->
+            <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                <div class="image">
+                    <img src="~/Admin/images/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                </div>
+                <div class="info">
+                    <a href="#" class="d-block">Admin </a>
+                </div>
+            </div>
+
+            <!-- Sidebar Menu -->
+            <nav class="mt-2">
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+
+                    <!--Authors-->
+                    <li class="nav-header">Authors</li>
+                    <li class="nav-item">
+                        <a class="nav-link">
+                            <i class="nav-icon fas fa-user-tie"></i>
+                            <p>
+                                Authors
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a asp-controller="AdminAuthors" asp-action="ViewAuthors" class="nav-link">
+                                    <i class="fas fa-table nav-icon"></i>
+                                    <p>View Authors List</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a asp-controller="AdminAuthors" asp-action="AddAuthor" class="nav-link">
+                                    <i class="fas fa-plus nav-icon"></i>
+                                    <p>Add a New Author</p>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <!--END OF Authors-->
+                    <!--News-->
+                    <li class="nav-header">News</li>
+                    <li class="nav-item">
+                        <a class="nav-link">
+                            <i class="nav-icon fas fa-newspaper"></i>
+                            <p>
+                                News
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a asp-controller="AdminNews" asp-action="ViewNews" class="nav-link">
+                                    <i class="fas fa-table nav-icon"></i>
+                                    <p>View News List</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a asp-controller="AdminNews" asp-action="AddNews" class="nav-link">
+                                    <i class="fas fa-plus nav-icon"></i>
+                                    <p>Create a News</p>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                    <!--END OF News-->
+                </ul>
+            </nav>
+            <!-- /.sidebar-menu -->
+        </div>
+        <!-- /.sidebar -->
+    </aside>
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
+
+
+    <div class="wrapper">
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <section class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1>Authors Table</h1>
+                        </div>
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item active">News</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div><!-- /.container-fluid -->
+            </section>
+
+            <!-- Main content -->
+            <section class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="card-title">This is the List of the News :</h3>
+
+                                    <a asp-controller="AdminNews" asp-action="AddNews" class="btn btn-success float-right col-3">Create a News</a>
+                                </div>
+                                <!-- /.card-header -->
+                                <div class="card-body">
+                                    <table id="table_id_news" class="table table-bordered table-hover col-12">
+                                        <thead>
+                                            <tr>
+                                                <th>Id</th>
+                                                <th>Image</th>
+                                                <th>Title</th>
+                                                <th>Description</th>
+                                                <th>Author Name</th>
+                                                <th>Creation Date</th>
+                                                <th>Publication Date</th>
+                                                <th></th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var news in Model)
+                                            {
+                                                <tr>
+                                                    <td>@news.Id</td>
+                                                    <td><img width="100px" height="100px" src="@news.NewsImagePath" /></td>
+                                                    <td>@news.Title</td>
+                                                    <td>@news.NewsDescription</td>
+                                                    <td>@news.AuthorName</td>
+                                                    <td>@news.CreationDate</td>
+                                                    <td>@news.PublicationDate</td>
+                                                    <td class="text-center"><a asp-controller="AdminNews" asp-action="UpdateNews" asp-route-id="@news.Id" class="btn btn-primary text-center">Update</a></td>
+                                                    <td class="text-center">
+
+                                                        <!-- Button trigger modal to delete-->
+                                                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="@string.Format("#id_{0}",news.Id)">Delete</button>
+                                                    </td>
+                                                    <!-- Modal -->
+                                                    <div class="modal fade" id="@string.Format("id_{0}",news.Id)" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="exampleModalLongTitle">Delete News</h5>
+                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    Are you sure you want to delete News ID : @news.Id ?
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                                    <a asp-controller="AdminNews" asp-action="DeleteNews" asp-route-id="@news.Id" class="btn btn-danger">Delete</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!--End of Modal-->
+
+
+                                                </tr>
+                                            }
+
+                                        </tbody>
+
+                                    </table>
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+
+                            <!-- /.card -->
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- /.row -->
+                </div>
+                <!-- /.container-fluid -->
+            </section>
+            <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+
+
+        @section DataTableScripts{
+
+            <script src="~/lib/jquery-dataTables/datatables.min.js"></script>
+
+            <script>
+                $(function () {
+                    $("#table_id_news").dataTable();
+                });
+            </script>
+
+        }
+    </div>

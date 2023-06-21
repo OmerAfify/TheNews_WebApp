@@ -1,0 +1,87 @@
+﻿
+@model List<NewsDTO>
+    <!-- Navbar Start -->
+    <div class="container-fluid p-0">
+        <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-2 py-lg-0 px-lg-5">
+            <a href="index.html" class="navbar-brand d-block d-lg-none">
+                <h1 class="m-0 display-4 text-uppercase text-primary">Biz<span class="text-white font-weight-normal">News</span></h1>
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between px-0 px-lg-3" id="navbarCollapse">
+                <div class="navbar-nav mr-auto py-0">
+                    <a asp-controller="Home" asp-action="Index" class="nav-item nav-link">Home</a>
+                    <a asp-controller="News" asp-action="ViewAllNews" class="nav-item nav-link active">News</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <!-- Navbar End -->
+
+    <!-- News With Sidebar Start -->
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="section-title">
+                                <h4 class="m-0 text-uppercase font-weight-bold">News</h4>
+                            </div>
+                        </div>
+                        @foreach (var news in Model)
+                        {
+                            <div class="col-lg-4">
+                                <div class="position-relative mb-3">
+                                    <a asp-controller="News" asp-action="ViewNews" asp-route-id="@news.Id">
+                                        <img class="img-fluid w-100"  src="@news.NewsImagePath" style="object-fit: cover;">
+                                    </a>
+                                    <div class="bg-white border border-top-0 p-4">
+                                        <div class="mb-2">
+
+
+                                            @{
+                                                TimeSpan difference = DateTime.Now - news.PublicationDate;
+                                                bool isPassed = difference.TotalDays >= 7;
+                                            }
+
+                                            @if(isPassed)
+                                            {
+                                            <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2">Passed</a>
+                                            }
+                                            else
+                                            {
+                                            <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2">Active</a>
+                                            }
+
+
+                                            <a class="text-body"><small>@news.PublicationDate</small></a>
+
+                                        </div>
+                                        <a asp-controller="News" asp-action="ViewNews" asp-route-id="@news.Id" class="h4 d-block mb-3 text-secondary text-uppercase font-weight-bold">@news.Title</a>
+                                        <p class="m-0">
+                                            @news.NewsDescription
+                                        </p>
+                                    </div>
+                                    <div class="d-flex justify-content-between bg-white border border-top-0 p-4">
+                                        <div class="d-flex align-items-center">
+                                            <img class="rounded-circle mr-2" src="~/Website/img/user.jpg" width="25" height="25" alt="">
+                                            <small>@news.AuthorName</small>
+                                        </div>
+                                        <div class="d-flex align-items-center">
+                                            <small class="ml-3"><i class="far fa-eye mr-2"></i>12345</small>
+                                            <small class="ml-3"><i class="far fa-comment mr-2"></i>123</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- News With Sidebar End -->

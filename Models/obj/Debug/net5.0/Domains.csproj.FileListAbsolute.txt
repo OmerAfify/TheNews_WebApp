@@ -1,0 +1,12 @@
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\News_WebApp\Models\bin\Debug\net5.0\Domains.deps.json
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\News_WebApp\Models\bin\Debug\net5.0\Domains.dll
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\News_WebApp\Models\bin\Debug\net5.0\ref\Domains.dll
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\News_WebApp\Models\bin\Debug\net5.0\Domains.pdb
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\News_WebApp\Models\obj\Debug\net5.0\Domains.csproj.AssemblyReference.cache
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\News_WebApp\Models\obj\Debug\net5.0\Domains.GeneratedMSBuildEditorConfig.editorconfig
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\News_WebApp\Models\obj\Debug\net5.0\Domains.AssemblyInfoInputs.cache
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\News_WebApp\Models\obj\Debug\net5.0\Domains.AssemblyInfo.cs
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\News_WebApp\Models\obj\Debug\net5.0\Domains.csproj.CoreCompileInputs.cache
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\News_WebApp\Models\obj\Debug\net5.0\Domains.dll
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\News_WebApp\Models\obj\Debug\net5.0\ref\Domains.dll
+D:\6-Programming and courses\My Local Projects Repository\ASP.net MVC\News_WebApp\Models\obj\Debug\net5.0\Domains.pdb
